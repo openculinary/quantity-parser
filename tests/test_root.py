@@ -7,6 +7,10 @@ def request_tests():
             'magnitude': 2,
             'units': 'ml',
         },
+        '2 kCal': {
+            'magnitude': 8368,
+            'units': 'J',
+        },
     }.items()
 
 

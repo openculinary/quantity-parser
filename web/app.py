@@ -22,6 +22,7 @@ def parse_quantity(description):
 def get_base_units(quantity):
     dimensionalities = {
         None: pint.Quantity(1),
+        'energy': pint.Quantity(1, 'J'),
         'length': pint.Quantity(1, 'cm'),
         'volume': pint.Quantity(1, 'ml'),
         'weight': pint.Quantity(1, 'g'),
