@@ -39,11 +39,11 @@ def root():
     descriptions = request.form.getlist('descriptions[]')
     descriptions = [d.strip() for d in descriptions]
 
-    results = {}
+    quantities = []
     for description in descriptions:
         magnitude, units = parse_quantity(description)
-        results[description] = {
+        quantities.append({
             'magnitude': magnitude,
             'units': units,
-        }
-    return jsonify(results)
+        })
+    return jsonify(quantities)

@@ -19,5 +19,4 @@ def test_request(client, description, expected):
     response = client.post('/', data={'descriptions[]': description})
     result = response.json
 
-    assert description in result
-    assert result[description] == expected
+    assert expected in result
