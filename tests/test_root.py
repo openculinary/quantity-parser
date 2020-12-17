@@ -8,8 +8,8 @@ def request_tests():
             'units': 'ml',
         },
         '2 kCal': {
-            'magnitude': 8.37,
-            'units': 'J',
+            'magnitude': 2,
+            'units': 'cal',
         },
     }.items()
 
