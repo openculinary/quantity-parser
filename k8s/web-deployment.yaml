@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quantity-parser-deployment
+  labels:
+    app: quantity-parser
+spec:
+  selector:
+    matchLabels:
+      app: quantity-parser
+      role: web
+  template:
+    metadata:
+      labels:
+        app: quantity-parser
+        role: web
+    spec:
+      containers:
+      - image: registry.openculinary.org/reciperadar/quantity-parser
+        imagePullPolicy: IfNotPresent
+        name: quantity-parser
+        ports:
+        - containerPort: 8000

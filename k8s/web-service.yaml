@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quantity-parser-service
+spec:
+  selector:
+    app: quantity-parser
+    role: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

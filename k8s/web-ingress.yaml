@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quantity-parser-ingress
+spec:
+  rules:
+  - host: quantity-parser
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: quantity-parser-service
+            port:
+              number: 80
