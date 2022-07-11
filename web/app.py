@@ -8,9 +8,9 @@ pint = UnitRegistry()
 
 def parse_quantity(description):
     total = 0
-    quantities = Ingreedy().parse(description)['quantity']
+    quantities = Ingreedy().parse(description)["quantity"]
     for quantity in quantities:
-        total += pint.Quantity(quantity['amount'], quantity['unit'])
+        total += pint.Quantity(quantity["amount"], quantity["unit"])
 
     base_units = get_base_units(total) or total.units
     total = total.to(base_units)
@@ -22,10 +22,10 @@ def parse_quantity(description):
 def get_base_units(quantity):
     dimensionalities = {
         None: pint.Quantity(1),
-        'energy': pint.Quantity(1, 'cal'),
-        'length': pint.Quantity(1, 'cm'),
-        'volume': pint.Quantity(1, 'ml'),
-        'weight': pint.Quantity(1, 'g'),
+        "energy": pint.Quantity(1, "cal"),
+        "length": pint.Quantity(1, "cm"),
+        "volume": pint.Quantity(1, "ml"),
+        "weight": pint.Quantity(1, "g"),
     }
     dimensionalities = {
         v.dimensionality: pint.get_symbol(str(v.units)) if k else None
@@ -34,16 +34,18 @@ def get_base_units(quantity):
     return dimensionalities.get(quantity.dimensionality)
 
 
-@app.route('/', methods=['POST'])
+@app.route("/", methods=["POST"])
 def root():
-    descriptions = request.form.getlist('descriptions[]')
+    descriptions = request.form.getlist("descriptions[]")
     descriptions = [d.strip() for d in descriptions]
 
     quantities = []
     for description in descriptions:
         magnitude, units = parse_quantity(description)
-        quantities.append({
-            'magnitude': magnitude,
-            'units': units,
-        })
+        quantities.append(
+            {
+                "magnitude": magnitude,
+                "units": units,
+            }
+        )
     return jsonify(quantities)
