@@ -9,7 +9,7 @@ def request_tests():
         },
         "2 kCal": {
             "magnitude": 2,
-            "units": "cal",
+            "units": "cal",  # TODO: is there a clearer way to represent calorie units? https://en.wikipedia.org/wiki/Calorie  # noqa
         },
     }.items()
 
