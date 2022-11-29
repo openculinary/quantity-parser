@@ -73,8 +73,9 @@ parsimonious==0.10.0 \
     --hash=sha256:8281600da180ec8ae35427a4ab4f7b82bfec1e3d1e52f80cb60ea82b9512501c \
     --hash=sha256:982ab435fabe86519b57f6b35610aa4e4e977e9f02a14353edf4bbc75369fc0f
     # via ingreedypy
-pint==0.19.2 \
-    --hash=sha256:e1d4989ff510b378dad64f91711e7bdabe5ca78d75b06a18569ac454678c4baf
+pint==0.20.1 \
+    --hash=sha256:387cf04078dc7dfe4a708033baad54ab61d82ab06c4ee3d4922b1e45d5626067 \
+    --hash=sha256:68afe65665542ee3ec99f69f043b1d39bfe7c6d61b786940157138fd08b838fb
     # via -r requirements.in
 regex==2022.9.13 \
     --hash=sha256:003a2e1449d425afc817b5f0b3d4c4aa9072dd5f3dfbf6c7631b8dc7b13233de \
