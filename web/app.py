@@ -6,7 +6,7 @@ app = Flask(__name__)
 pint = UnitRegistry()
 
 
-def parse_quantity(description):
+def parse_quantity(language_code, description):
     total = 0
     quantities = Ingreedy().parse(description)["quantity"]
     for quantity in quantities:
@@ -36,12 +36,13 @@ def get_base_units(quantity):
 
 @app.route("/", methods=["POST"])
 def root():
+    language_code = request.form.get("language_code", type=str, default="en")
     descriptions = request.form.getlist("descriptions[]")
     descriptions = [d.strip() for d in descriptions]
 
     quantities = []
     for description in descriptions:
-        magnitude, units = parse_quantity(description)
+        magnitude, units = parse_quantity(language_code, description)
         quantities.append(
             {
                 "magnitude": magnitude,
