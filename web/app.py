@@ -6,11 +6,18 @@ app = Flask(__name__)
 pint = UnitRegistry()
 
 
+def normalize_unit(language_code, unit):
+    return unit, 1
+
+
 def parse_quantity(language_code, description):
     total = 0
     quantities = Ingreedy().parse(description)["quantity"]
     for quantity in quantities:
-        total += pint.Quantity(quantity["amount"], quantity["unit"])
+        unit, amount = quantity["unit"], quantity["amount"]
+        normalized_unit, conversion_factor = normalize_unit(language_code, unit)
+        normalized_amount = amount * conversion_factor
+        total += pint.Quantity(normalized_amount, normalized_unit)
 
     base_units = get_base_units(total) or total.units
     total = total.to(base_units)
