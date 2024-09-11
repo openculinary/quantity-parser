@@ -1,16 +1,35 @@
 from flask import Flask, jsonify, request
 from ingreedypy import Ingreedy
+from language_tags import tags as language
 from pint import UnitRegistry
 
 app = Flask(__name__)
 pint = UnitRegistry()
 
 
+def normalize_unit(language_code, unit):
+    if language.tag(language_code).language.format in {"cs", "sk"}:
+        spoon_units = {
+            "cl": ("teaspoons", 1),  # čajová lžička
+            "CL": ("teaspoons", 1),  # cL would imply centiliters
+            "ML": ("teaspoons", 1),  # mL would imply milliliters
+            "pl": ("tablespoons", 1),  # polévková lžíce
+            "PL": ("tablespoons", 1),
+        }
+        if unit in spoon_units:
+            return spoon_units[unit]
+
+    return unit, 1
+
+
 def parse_quantity(language_code, description):
     total = 0
     quantities = Ingreedy().parse(description)["quantity"]
     for quantity in quantities:
-        total += pint.Quantity(quantity["amount"], quantity["unit"])
+        unit, amount = quantity["unit"], quantity["amount"]
+        normalized_unit, conversion_factor = normalize_unit(language_code, unit)
+        normalized_amount = amount * conversion_factor
+        total += pint.Quantity(normalized_amount, normalized_unit)
 
     base_units = get_base_units(total) or total.units
     total = total.to(base_units)

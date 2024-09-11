@@ -84,6 +84,10 @@ jinja2==3.1.4 \
     # via
     #   -r requirements.txt
     #   flask
+language-tags==1.2.0 \
+    --hash=sha256:d815604622242fdfbbfd747b40c31213617fd03734a267f2e39ee4bd73c88722 \
+    --hash=sha256:e934acba3e3dc85f867703eca421847a9ab7b7679b11b5d5cfd096febbf8bde6
+    # via -r requirements.txt
 markupsafe==2.1.5 \
     --hash=sha256:00e046b6dd71aa03a41079792f8473dc494d564611a8f89bbbd7cb93295ebdcf \
     --hash=sha256:075202fa5b72c86ad32dc7d0b56024ebdbcf2048c0ba09f1cde31bfdd57bcfff \

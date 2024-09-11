@@ -11,6 +11,10 @@ def request_tests():
             "magnitude": 2,
             "units": "cal",  # TODO: is there a clearer way to represent calorie units? https://en.wikipedia.org/wiki/Calorie  # noqa
         },
+        ("sk", "3 PL"): {
+            "magnitude": 44.36,  # TODO: check variance of spoon-related conversions
+            "units": "ml",
+        },
     }.items()
 
 
