@@ -20,7 +20,7 @@ def test_request(client, context, expected):
     response = client.post(
         "/",
         data={
-            "language_code": "en",
+            "language_code": language_code,
             "descriptions[]": description,
         },
     )
