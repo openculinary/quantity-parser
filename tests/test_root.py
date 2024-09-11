@@ -11,6 +11,10 @@ def request_tests():
             "magnitude": 2,
             "units": "cal",  # TODO: is there a clearer way to represent calorie units? https://en.wikipedia.org/wiki/Calorie  # noqa
         },
+        ("sk", "3 PL"): {
+            "magnitude": 18,
+            "units": "ml",
+        },
     }.items()
 
 
