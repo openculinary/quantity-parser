@@ -9,11 +9,11 @@ pint = UnitRegistry()
 def normalize_unit(language_code, unit):
     if language_code[:2].lower() in {"cs", "sk"}:
         spoon_units = {
-            "cl": ("ml", 6),  # čajová lžička
-            "CL": ("ml", 6),  # cL would be less-ambiguous
-            "ML": ("ml", 2),  # mL would be less-ambiguous
-            "pl": ("ml", 6),  # polévková lžíce
-            "PL": ("ml", 6),
+            "cl": ("teaspoons", 1),  # čajová lžička
+            "CL": ("teaspoons", 1),  # cL would be less-ambiguous
+            "ML": ("teaspoons", 1),  # mL would be less-ambiguous
+            "pl": ("tablespoons", 1),  # polévková lžíce
+            "PL": ("tablespoons", 1),
         }
         if unit in spoon_units:
             return spoon_units[unit]
