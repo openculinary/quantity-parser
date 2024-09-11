@@ -11,8 +11,8 @@ def normalize_unit(language_code, unit):
     if language.tag(language_code).language.format in {"cs", "sk"}:
         spoon_units = {
             "cl": ("teaspoons", 1),  # čajová lžička
-            "CL": ("teaspoons", 1),  # cL would be less-ambiguous
-            "ML": ("teaspoons", 1),  # mL would be less-ambiguous
+            "CL": ("teaspoons", 1),  # cL would imply centiliters
+            "ML": ("teaspoons", 1),  # mL would imply milliliters
             "pl": ("tablespoons", 1),  # polévková lžíce
             "PL": ("tablespoons", 1),
         }
