@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from ingreedypy import Ingreedy
+from language_tags import tags as language
 from pint import UnitRegistry
 
 app = Flask(__name__)
@@ -7,7 +8,7 @@ pint = UnitRegistry()
 
 
 def normalize_unit(language_code, unit):
-    if language_code[:2].lower() in {"cs", "sk"}:
+    if language.tag(language_code).language.format in {"cs", "sk"}:
         spoon_units = {
             "cl": ("teaspoons", 1),  # čajová lžička
             "CL": ("teaspoons", 1),  # cL would be less-ambiguous
