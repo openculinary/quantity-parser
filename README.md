@@ -2,11 +2,11 @@
 
 The RecipeRadar Quantity Parser takes a set of free-text quantity descriptions, and extracts magnitude and unit information from them.
 
-This functionality is provided to the [crawler](https://www.github.com/openculinary/crawler) service so that it can extract additional data from each recipe crawled.
+This functionality is provided to the [crawler](https://codeberg.org/openculinary/crawler) service so that it can extract additional data from each recipe crawled.
 
 ## Install dependencies
 
-Make sure to follow the RecipeRadar [infrastructure](https://www.github.com/openculinary/infrastructure) setup to ensure all cluster dependencies are available in your environment.
+Make sure to follow the RecipeRadar [infrastructure](https://codeberg.org/openculinary/infrastructure) setup to ensure all cluster dependencies are available in your environment.
 
 ## Development
 
